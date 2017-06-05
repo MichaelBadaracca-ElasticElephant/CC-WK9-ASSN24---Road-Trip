@@ -1,0 +1,12 @@
+You are taking a road trip in a vehicle, and you're trying to plan what stuff you want to take with you.
+
+Create images for 8 different items you might want to take with you (e.g. 'spare tire', 'roll of quarters', or 'extra car'). Each of these items should have a cost, and a weight.
+
+Your vehicle has a max weight of 500lbs limiting how much stuff your vehicle can hold, and 
+you have only $100, limiting how much stuff you can buy.
+
+The user should be able to click an image to add one of that item to their vehicle (ie if they click the 'spare tire' 10 times, they are taking 10 spare tires on their road trip)
+
+The user should be able to view how many of each item they've added to their vehicle. There should be a button next to the items that can be clicked to remove one of that item from the vehicle.
+
+If the items in the vehicle weigh too much, or cost too much, apply dynamic styles to the item that is too expensive, or too heavy, so that the user knows what to remove, so that they can properly load their vehicle.
