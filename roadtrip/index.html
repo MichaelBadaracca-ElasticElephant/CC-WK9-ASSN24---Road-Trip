@@ -1,16 +1,54 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://unpkg.com/vue"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     
-    <title>Vue Exercise 1</title>
+    <title>Family Roadtrip</title>
 </head>
 <body>
-    <div id="app">
-        {{test}}
+    <div id="app" class="container">
+        <section >
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51nrMgDf1bL.jpg" />
+            <h1>Money Left: ${{usersMoney}}</h1>
+            <h1>Weight on vehicle: {{weightOfVehicle}}</h1>
+            <div id="purchased-items">
+
+            </div>
+        </section>
+        <section id="available-items">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>{{items[0].name}}</h2>
+                    <img class="img-responsive" v-bind:src="items[0].imagePath"/>
+                    <h3>Weight: {{items[0].weight}} lbs</h3>
+                    <button class="btn btn-success" v-on:click="buyItem(items[0])">Buy - ${{items[0].price}}</button>
+                    <button class="btn btn-danger" v-on:click="sellItem(items[0])">Sell - ${{items[0].price}}</button>
+                </div>
+            </div>
+        </section>
+
+        <!--
+                - show car
+                - show weight of items in car
+                - show money left
+                - show items
+                    - cost
+                    - weight
+
+            -- create a component to display
+        
+            
+            -->
     </div>
     <script src="/main.js"></script>
 </body>
