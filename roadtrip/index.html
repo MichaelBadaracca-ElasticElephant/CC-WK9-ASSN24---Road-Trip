@@ -19,6 +19,7 @@
     <div id="app" class="container">
         
         <section >
+            <div>{{validationMessage}}</div>
             <img src="https://images-na.ssl-images-amazon.com/images/I/51nrMgDf1bL.jpg" />
             <h1>Money Left: ${{usersMoney}}</h1>
             <h1>Weight on vehicle: {{weightOfVehicle}}</h1>
@@ -29,7 +30,7 @@
         <section id="available-items">
             <div class="row">
 
-                <item v-bind:item="this.items[0]" v-on:buy-item="buyItem" v-on:sell-item="sellItem"></item>
+                <item v-for="item in items" v-bind:item="item" v-on:buy-item="buyItem" v-on:sell-item="sellItem"></item>
 
 
             </div>
