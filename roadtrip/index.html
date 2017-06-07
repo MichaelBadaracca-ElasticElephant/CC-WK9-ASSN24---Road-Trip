@@ -17,6 +17,7 @@
 </head>
 <body>
     <div id="app" class="container">
+        
         <section >
             <img src="https://images-na.ssl-images-amazon.com/images/I/51nrMgDf1bL.jpg" />
             <h1>Money Left: ${{usersMoney}}</h1>
@@ -27,13 +28,10 @@
         </section>
         <section id="available-items">
             <div class="row">
-                <div class="col-md-4">
-                    <h2>{{items[0].name}}</h2>
-                    <img class="img-responsive" v-bind:src="items[0].imagePath"/>
-                    <h3>Weight: {{items[0].weight}} lbs</h3>
-                    <button class="btn btn-success" v-on:click="buyItem(items[0])">Buy - ${{items[0].price}}</button>
-                    <button class="btn btn-danger" v-on:click="sellItem(items[0])">Sell - ${{items[0].price}}</button>
-                </div>
+
+                <item v-bind:item="this.items[0]" v-on:buy-item="buyItem" v-on:sell-item="sellItem"></item>
+
+
             </div>
         </section>
 
