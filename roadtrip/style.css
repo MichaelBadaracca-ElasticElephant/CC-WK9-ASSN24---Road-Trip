@@ -56,7 +56,7 @@
     0% {
         background-color: red;
         opacity:1;
-        color:darkred;
+        color:white;
         left: 0%;
         top: 0%;
     }
@@ -136,7 +136,7 @@
     display:inherit;
     z-index:100;
     animation-name: example;
-    animation-duration: 8s;
+    animation-duration: 12s;
     animation-iteration-count: infinite;
 }
 

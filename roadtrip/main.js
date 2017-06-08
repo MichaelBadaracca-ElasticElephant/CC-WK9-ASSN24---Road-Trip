@@ -51,19 +51,20 @@ var mainAppVm = new Vue( {
                 price: 15,
                 weight: 30
             },
-            {
-                name: "Spork",
-                description: "You never know when ",
-                imagePath: 'http://cdn.shopify.com/s/files/1/1365/2497/products/tumblr_lyq7rjeyjI1qzfsnio1_500_grande.gif?v=1478473486',
-                price: 5,
-                weight: 2
-            },
+           
             {
                 name: "Goat w/ Can",
                 description: "You never know when ",
                 imagePath: 'http://geek-whisperers.com/wp-content/uploads/2015/05/goat_can.jpg',
                 price: 5,
                 weight: 50
+            },
+            {
+                name: "Spork",
+                description: "You never know when ",
+                imagePath: 'http://cdn.shopify.com/s/files/1/1365/2497/products/tumblr_lyq7rjeyjI1qzfsnio1_500_grande.gif?v=1478473486',
+                price: 5,
+                weight: 2
             },
             {
                 name: "4 Loko w/ Bro",
@@ -138,29 +139,64 @@ var mainAppVm = new Vue( {
             
         },
 
-        isMoneyValid: function ( )
+        //isMoneyValid: function ( )
+        //{
+        //    if ( this.usersMoney >= this.minUserMoney && this.usersMoney <= this.maxUsersMoney )
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        this.validationMessage = "You're broke fool!"
+        //        return false;
+        //    }
+        //},
+
+        isMoneyValid: function ()
         {
-            if ( this.usersMoney >= this.minUserMoney && this.usersMoney <= this.maxUsersMoney )
+            if ( this.usersMoney < this.minUserMoney) 
             {
-                return true;
+                this.validationMessage = "You're broke fool!";
+                return false;
+            } else if ( this.usersMoney > this.maxUsersMoney )
+            {
+                this.validationMessage = "You can't sell shiz you don't own fool!";
+                return false;
             }
             else
             {
-                this.validationMessage = "You're broke fool!"
-                return false;
+                return true;
             }
         },
 
-        isWeightValid: function ( )        {
-            if ( this.weightOfVehicle >= this.minWeightOfVehicle && this.weightOfVehicle <= this.maxWeightOfVehicle )
-            {
+        //isWeightValid: function ( )        {
+        //    if ( this.weightOfVehicle >= this.minWeightOfVehicle && this.weightOfVehicle <= this.maxWeightOfVehicle )
+        //    {
                 
-                return true;
-            } else
+        //        return true;
+        //    } else
+        //    {
+        //        this.validationMessage = "Too heavy fool!"
+        //        return false;
+        //    }
+        //}
+
+
+        isWeightValid: function ()      
+        {
+            if ( this.weightOfVehicle < this.minWeightOfVehicle )
+            {
+                this.validationMessage = "You can't have negative weight. This ain't a hot air balloon!"
+                return false;
+            } else if ( this.weightOfVehicle > this.maxWeightOfVehicle )
             {
                 this.validationMessage = "Too heavy fool!"
                 return false;
+            } else
+            {
+                return true;
             }
+
         }
     }
 

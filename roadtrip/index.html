@@ -24,7 +24,7 @@
             <h1 class="page-title">You Be Trippin' Foo</h1>
             
             <section class="row">
-                <section class="col-md-5 col-md-offset-2 centered">
+                <section class="col-md-5 col-md-offset-1 centered">
                     <h2>Yo Ride</h2>
                     
                     <a href="https://www.youtube.com/watch?v=gmjE-1TQFJ0">
@@ -39,7 +39,7 @@
                     <h1 class="money">Skrilla: ${{usersMoney}}</h1>
                     <h1>Junk in the Trunk: {{weightOfVehicle}} lbs</h1>
                 </section>
-                <section id="purchasedItems" class="col-md-5 centered">
+                <section id="purchasedItems" class="col-md-5 col-md-offset-1 centered">
                     <h2>Yo Shiz</h2>
                     <div class="purchased-summary"  v-for="item in purchasedItems">
                         <span>
@@ -54,19 +54,6 @@
                     <item v-for="item in items" v-bind:item="item" v-on:buy-item="buyItem" v-on:sell-item="sellItem"></item>
                 </div>
             </section>
-
-            <!--
-                    - show car
-                    - show weight of items in car
-                    - show money left
-                    - show items
-                        - cost
-                        - weight
-
-                -- create a component to display
-
-
-                -->
         </div>
     </div>
     <script src="/main.js"></script>
