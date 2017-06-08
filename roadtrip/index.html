@@ -8,46 +8,66 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="/style.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    
+
     <title>Family Roadtrip</title>
 </head>
 <body>
-    <div id="app" class="container">
-        
-        <section >
-            <div>{{validationMessage}}</div>
-            <img src="https://images-na.ssl-images-amazon.com/images/I/51nrMgDf1bL.jpg" />
-            <h1>Money Left: ${{usersMoney}}</h1>
-            <h1>Weight on vehicle: {{weightOfVehicle}}</h1>
-            <div id="purchased-items">
-
-            </div>
-        </section>
-        <section id="available-items">
-            <div class="row">
-
-                <item v-for="item in items" v-bind:item="item" v-on:buy-item="buyItem" v-on:sell-item="sellItem"></item>
-
-
-            </div>
-        </section>
-
-        <!--
-                - show car
-                - show weight of items in car
-                - show money left
-                - show items
-                    - cost
-                    - weight
-
-            -- create a component to display
-        
+    <div id="app" class="centered" v-bind:class="{hell:!isValid}">
+        <div class="validation-message" v-bind:class='{animate:!isValid}'>{{validationMessage}}</div>
+        <div class="container">
+            <h1 class="page-title">You Be Trippin' Foo</h1>
             
-            -->
+            <section class="row">
+                <section class="col-md-5 col-md-offset-2 centered">
+                    <h2>Yo Ride</h2>
+                    
+                    <a href="https://www.youtube.com/watch?v=gmjE-1TQFJ0">
+                        <img class="img-responsive" src="http://i.ebayimg.com/images/g/csEAAOSwc1FXaCOU/s-l1600.jpg" />
+                        <!--<img src="http://i.ebayimg.com/images/g/z30AAOSwMNxXaXGf/s-l1600.jpg" />-->
+                    </a>
+
+                    <!--http://www.listartech.com/photo/pl12086826-walking_animal_rides_electric_go_karts_toy_horse_on_wheels_adult_carnival_rides_in_mall.jpg-->
+
+
+                    <!--<img src="/images/mall scooner - clear.png" />-->
+                    <h1 class="money">Skrilla: ${{usersMoney}}</h1>
+                    <h1>Junk in the Trunk: {{weightOfVehicle}} lbs</h1>
+                </section>
+                <section id="purchasedItems" class="col-md-5 centered">
+                    <h2>Yo Shiz</h2>
+                    <div class="purchased-summary"  v-for="item in purchasedItems">
+                        <span>
+                            <img class="img-responsive summary-image" v-bind:src="item.imagePath" />{{item.name}}
+                        </span>
+                    </div>
+                </section>
+            </section>
+            <div class="divider"></div>
+            <section id="available-items">
+                <div class="row">
+                    <item v-for="item in items" v-bind:item="item" v-on:buy-item="buyItem" v-on:sell-item="sellItem"></item>
+                </div>
+            </section>
+
+            <!--
+                    - show car
+                    - show weight of items in car
+                    - show money left
+                    - show items
+                        - cost
+                        - weight
+
+                -- create a component to display
+
+
+                -->
+        </div>
     </div>
     <script src="/main.js"></script>
 </body>
